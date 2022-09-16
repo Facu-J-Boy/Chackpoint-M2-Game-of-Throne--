@@ -27,6 +27,13 @@ export class Houses extends Component {
                         region={h.region}
                         name={h.name}
                         words={h.words} 
+                        characters={h.characters.map((c) => {
+                            return (
+                                <ul>
+                                    <li>{c.name}</li>
+                                </ul>
+                            )
+                        })}
                         />
                     )
                 })}

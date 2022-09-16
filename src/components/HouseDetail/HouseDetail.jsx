@@ -9,19 +9,19 @@ import CharacterCard from '../CharacterCard/CharacterCard';
 const HouseDetail = (props) => {
 
   const date = useSelector((state) => state.house);
-
+  console.log(date);
   const dispatch = useDispatch();
 
-  React.useEffect(() => {
-    dispatch(getHouse(props.match.params.id))
-  })
+  // React.useEffect(() => {
+  //   dispatch(getHouse(props.id))
+  // })
     
     return (
         <div>
           <CharacterCard 
           key={date.id}
           id={date.id}
-          fullNmae={date.fullName}
+          name={date.name}
           title={date.title}
           family={date.family}
           image={date.imageUrl}
