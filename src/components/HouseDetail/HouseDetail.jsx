@@ -9,23 +9,29 @@ import CharacterCard from '../CharacterCard/CharacterCard';
 const HouseDetail = (props) => {
 
   const date = useSelector((state) => state.house);
-  console.log(date);
+
   const dispatch = useDispatch();
 
-  // React.useEffect(() => {
-  //   dispatch(getHouse(props.id))
-  // })
+  React.useEffect(() => {
+    dispatch(getHouse(props.match.params.houseId))
+  })
     
     return (
         <div>
-          <CharacterCard 
-          key={date.id}
-          id={date.id}
-          name={date.name}
-          title={date.title}
-          family={date.family}
-          image={date.imageUrl}
-          />
+          <h1>{date.name}</h1>
+          <h3>{date.words}</h3>
+          {date.characters.map((c) => {
+            return (
+              <CharacterCard 
+              key={c.id}
+              id={c.id}
+              fullName={c.fullName}
+              title={c.title}
+              family={c.family}
+              imageUrl={c.imageUrl}
+              />
+            )
+          })}
         </div>
     );
 };
